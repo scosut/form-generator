@@ -1,0 +1,155 @@
+/* form styles */
+#form {
+	border: $border-primary;
+	border-radius: 0.3rem;
+	margin: 15rem 0;
+	max-width: 27.5rem;
+	padding: 1.5rem 2rem;
+	
+	@include atSmall {
+		max-width: 37.5rem;
+	}	
+
+	h1 {
+		color: $color-heading-primary;
+		font-size: 3.2rem;
+	}
+	
+	h2 {
+		font-size: 22px;
+	}
+
+	p {
+		margin-top: 0.5rem;
+	}
+	
+	> img {
+		display: block;
+		margin: 0.5rem 0 1rem 0;
+		width: 100%;
+	}		
+		
+	hr {
+		border: none;
+		border-top: $border-primary;
+		margin: 2.5rem 0;
+	}
+		
+	.item-image {
+		border: $border-secondary;
+		border-radius: 0.3rem;
+		display: block;
+		margin-top: 1rem;
+		padding: 0.5rem;
+		width: 15rem;
+	}
+	
+	#errors {
+		border: $border-errors;
+		color: $color-errors;
+		list-style: none;
+		margin-top: 1.5rem;
+		padding: 0.5rem 1rem;
+		
+		li:nth-child(n+2) {
+			margin-left: 1rem;
+		}
+	}
+		
+	.form-group {
+		margin-top: 1.5rem;
+
+		label {
+			display: block;
+		}
+
+		input[type=text],
+		input[type=password],
+		textarea,
+		select {
+			border: $border-secondary;
+			border-radius: 0.3rem;
+			color: $color-text-secondary;
+			font: inherit;
+			padding: 0.2rem;
+			width: 100%;
+			
+			&:focus {
+				border: $border-primary;
+			}
+		}
+
+		textarea {
+			height: 8.5rem;
+			resize: none;	
+		}
+
+		> button {
+			background: $color-heading-primary;
+			border: none;
+			border-radius: 0.5rem;
+			color: $color-button-text;
+			cursor: pointer;
+			padding: 0.5rem;
+		}
+
+		> label + div.radio-group {
+			margin-top: 0.5rem;
+		}
+
+		.radio-group {
+			input[type=radio] {
+				display: none;
+			
+				&:checked + label .radio-circle span {
+					background: $color-heading-primary;
+					border-radius: 50%;
+					display: block;
+					height: 1rem;
+					width: 1rem;			
+				}				
+			}
+			
+			label {
+				align-items: center;
+				display: flex;
+				
+				img {
+					max-width: 75%;
+				}
+				
+				.radio-circle {
+					align-items: center;
+					border: $border-secondary;
+					border-radius: 50%;
+					display: flex;
+					height: 1.6rem;
+					justify-content: center;
+					margin-right: 0.5rem;
+					width: 1.6rem;
+				}
+			}			
+		}
+		
+		.file-group {
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+			
+			input[type=file] {
+				display: none;
+			}
+			
+			input[type=text] {
+				margin-right: 0.5rem;
+			}
+			
+			button {
+				border: none;
+				color: $color-heading-primary;
+				cursor: pointer;
+				font-size: 2.8rem;				
+			}
+		}
+	}
+}

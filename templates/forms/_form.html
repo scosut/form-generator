@@ -1,0 +1,86 @@
+<div class="form-group">
+	<label for="title">Form Title:</label>
+	<input type="text" id="title" name="title"{% if form %} value="{{ form.title }}"{% endif %}>
+</div>
+
+<div class="form-group">
+	<label for="instructions">Form Instructions:</label>
+	<textarea id="instructions" name="instructions">{% if form %}{{ form.instructions }}{% endif %}</textarea>
+</div>
+
+<div class="form-group">
+	<label for="logo-1">Form Logo:</label>
+	{% for f in files %}
+	<div class="radio-group">
+		<input type="radio" id="logo-{{ forloop.counter }}" name="logo" value="{{ f }}"{% if form and f|stringformat:'s' in form.logo|stringformat:'s' %} checked{% endif %}>
+		<label for="logo-{{ forloop.counter }}">
+			<div class="radio-circle"><span></span></div>
+			<img src="{{ source }}{{ f }}">
+		</label>
+	</div>
+	{% endfor %}
+	<div class="radio-group">
+		<input type="radio" id="logo-new" name="logo" value="new">
+		<label for="logo-new">
+			<div class="radio-circle"><span></span></div><div>New</div>
+		</label>
+	</div>
+</div>
+
+<div id="logo-new-group" class="form-group">
+	<label for="logo-new-text">New Logo File:</label>
+	<div class="file-group">
+		<input type="text" id="logo-new-text" name="logo-new-text" readonly>
+		<button class="fas fa-caret-square-up" type="button" id="logo-new-button" name="logo-new-button"></button>
+		<input type="file" id="logo-new-file" name="logo-new-file" accept="image/gif, image/jpeg, image/png">
+	</div>
+</div>
+
+<div class="form-group">
+	<label for="customer-email">Customer Email:</label>
+	<input type="text" id="email" name="email"{% if form %} value="{{ form.email }}"{% endif%}>
+</div>
+
+<div class="form-group">
+	<label for="customer-gym">Customer Gym:</label>
+	<input type="text" id="gym" name="gym"{% if form %} value="{{ form.gym }}"{% endif %}>
+</div>
+
+<div class="form-group">
+	<label for="for-sale">Number of Items for Sale:</label>
+	<select id="for-sale" name="for-sale">
+		{% for i in '123456789' %}
+		<option value="{{ i }}"{% if form and form.forSale|stringformat:'s' == i or i == '1' %} selected{% endif %}>{{ i }}</option>
+		{% endfor %}
+	</select>
+</div>
+
+{% for item in items %}
+<div id="item-group-{{ forloop.counter }}">
+	<div class="form-group">
+		<label for="item-title-{{ forloop.counter }}">Item {{ forloop.counter }} Title:</label>
+		<input type="text" id="item-title-{{ forloop.counter }}" name="item-title-{{ forloop.counter }}" value="{{ item.title }}">
+	</div>
+	<div class="form-group">
+		<label for="item-price-{{ forloop.counter }}">Item {{ forloop.counter }} Price:</label>
+		<input type="text" id="item-price-{{ forloop.counter }}" name="item-price-{{ forloop.counter }}" value="{{ item.price }}">
+	</div>
+	<div class="form-group">
+		<label for="item-image-text-{{ forloop.counter }}">Item {{ forloop.counter }} Image:</label>
+		<div class="file-group">
+			<input type="text" id="item-image-text-{{ forloop.counter }}" name="item-image-text-{{ forloop.counter }}" readonly>
+			<button type="button" id="item-image-button-{{ forloop.counter }}" name="item-image-button-{{ forloop.counter }}" class="fas fa-caret-square-up"></button>
+			<input type="file" id="item-image-file-{{ forloop.counter }}" name="item-image-file-{{ forloop.counter }}" accept="image/gif, image/jpeg, image/png">	
+		</div>
+		<img class="item-image" src="{{ item.image }}">
+	</div>
+	<div class="form-group">
+		<label for="item-sizes-{{ forloop.counter }}">Item {{ forloop.counter }} Sizes:</label>
+		<textarea id="item-sizes-{{ forloop.counter }}" name="item-sizes-{{ forloop.counter }}" placeholder="(enter each size on separate line)">{{ item.sizes }}</textarea>
+	</div>
+</div>
+{% endfor %}
+
+<div class="form-group">			
+	<button type="submit" id="btnSubmit" name="btnSubmit">Submit</button>
+</div>

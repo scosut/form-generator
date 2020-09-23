@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form id="form" action="{% url 'add' %}" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	<h1>New Form</h1>	
+
+	<p>Complete this form to create a new method for accepting orders.</p>
+	
+	{% include 'forms/_form.html' %}	
+</form>
+{% endblock %}

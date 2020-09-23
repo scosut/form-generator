@@ -1,0 +1,3 @@
+# Form Generator
+
+This application improves the method of managing customer orders. Original process entailed seller building a fillable PDF document, forwarding the document to the customer as an email attachment, then transferring all responses to a spreadsheet for further analysis. Seller must be comfortable with Acrobat forms and Excel to be successful. New process asks seller to complete an online form, which automatically generates a new order form and issues a link to the new form by email to the appropriate customer. All customer responses can be downloaded and compiled from a single call to action. Success is not dependent on software familiarity.

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load tz %}
+
+{% block content %}
+<table id="table">
+	<caption>
+		<div class="caption-wrapper">
+			<h1>Forms List</h1>
+			<a href="{% url 'add' %}" title="add">
+				<i class="fas fa-plus-circle"></i>
+			</a>
+		</div>
+	</caption>
+	{% if forms %}
+	<thead>
+		<tr>
+			<th>Gym</th>
+			<th>Email Sent</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for form in forms %}
+		<tr>
+			<td>{{ form.gym }}</td>
+			<td>
+			{{ form.notified|date:'n/j/Y' }}
+			<span class="nowrap">
+				{{ form.notified|timezone:'America/Los_Angeles'|time:'g:i:s a' }}
+			</span>
+			</td>
+			<td>
+				<a href="{% url 'notify' form.id %}" title="email"><i class="fas fa-envelope"></i></a>
+				<a href="{% if form.form_orders %}javascript:void(null){% else %}{% url 'edit' form.id %}{% endif %}" title="edit"{% if form.form_orders %} class="disabled"{% endif %}>
+					<i class="fas fa-pencil-alt"></i>
+				</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>	
+	<tfoot>
+		<tr>
+			<td colspan="3">
+				<form id="form" action="{% url 'forms' %}" method="post">
+					{% csrf_token %}
+					<input type="hidden" id="page" name="page">
+				</form>
+				{% for page in pages %}
+				<a href="#" class="page-link{% if page == active %} active{% endif %}">{{ page }}</a>
+				{% endfor %}
+			</td>
+		</tr>
+	</tfoot>
+	{% else %}
+	<tfoot>
+		<tr>
+			<td>No forms exist at this time.</td>
+		</tr>
+	</tfoot>
+	{% endif %}
+</table>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load tz %}
+
+{% block content %}
+<form id="form">
+	<img src="{{ source }}{{ form.logo }}">
+	
+	<h1>{{ form.title }}</h1>	
+
+	<p>This order was placed on {{ order_date|date:'F j, Y' }} at {{ order_date|timezone:'America/Los_Angeles'|time:'g:i:s a' }} by {{ form.gym }} in the amount of ${{ total|intcomma }}.</p>
+	
+	{% for item in items.values %}
+	<hr>
+	
+	<h2>{{ item.title }} (${{ item.price }})</h2>
+
+	<img class="item-image" src="{{ source }}{{ item.image }}">
+
+	{% for order in item.orders %}	
+	<div class="form-group">
+		<label>Quantity ({{ order.size }}):</label>
+		<input type="text" value="{{ order.quantity }}" readonly>
+	</div>
+
+	<div class="form-group">
+		<label>Athlete Names ({{ order.size }}):</label>
+		<textarea readonly>{{ order.athletes }}</textarea>
+	</div>
+	{% endfor %}
+	{% endfor %}
+</form>
+{% endblock %}

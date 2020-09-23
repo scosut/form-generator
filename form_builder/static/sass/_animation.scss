@@ -1,0 +1,86 @@
+@keyframes scale-image {
+	0% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes show-title {
+	0% {
+		left: -500px;
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	to {
+		left: 50%;
+		opacity: 1;
+	}
+}		
+
+@keyframes show-image {
+	from {
+		left: 50%;
+		opacity: 0;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 18rem;
+	}
+	to {
+		left: 50%;
+		opacity: 1;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 18rem;
+	}
+}
+
+@keyframes cover-form {
+	from {
+		background: none;
+		opacity: 1;
+	}
+	to {
+		background: #fff;
+		opacity: 0.5;
+	}
+}
+
+@keyframes move-green {
+	@include animateForm(
+		$fromRotate:360deg, 
+		$toLeft:12px, 
+		$toTop:7px, 
+		$toRotate:345deg
+	)
+}
+
+@keyframes move-orange {
+	@include animateForm(
+		$fromRotate:360deg, 
+		$toLeft:12px, 
+		$toTop:calc(100% - 77px - 7px), 
+		$toRotate:345deg
+	)
+}
+
+@keyframes move-blue {
+	@include animateForm(
+		$fromRotate:0deg, 
+		$toLeft:calc(100% - 59px - 10px), 
+		$toTop:10px,
+		$toRotate:15deg
+	)
+}
+
+@keyframes move-mustard {
+	@include animateForm(
+		$fromRotate:0deg, 
+		$toLeft:calc(100% - 59px - 10px), 
+		$toTop:calc(100% - 77px - 7px),
+		$toRotate:15deg
+	)
+}

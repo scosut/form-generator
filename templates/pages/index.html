@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for color in colors %}
+<div class="{{ color }}">
+	<img src="{{ source }}img/form_{{ color }}_large.png">
+</div>
+{% endfor %}
+<div class="title-wrapper">
+	<h1>Form Builder</h1>
+	<h2>A tool for creating custom order forms.</h2>
+	<h3>Start crafting your new form today.</h3>
+	<a href="{% url 'add' %}"><img src="{{ source }}img/click.png"></a>
+</div>
+{% endblock %}

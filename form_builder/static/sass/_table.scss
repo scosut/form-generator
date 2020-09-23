@@ -1,0 +1,97 @@
+/* form styles */
+#table {	
+	border-collapse: collapse;
+	margin: 15rem 0;
+	width: 95%;
+	
+	@include atSmall() {
+		width: 90%;
+	}
+	
+	caption {
+		color: $color-heading-primary;
+		font-size: 3.2rem;
+		margin-bottom: 1.5rem;
+		text-align: left;
+		
+		.caption-wrapper {
+			align-items: flex-end;
+			display: flex;			
+			justify-content: space-between;
+			
+			h1 {
+				font-size: inherit;
+			}
+
+			a {
+				color: inherit;
+				font-size: 1.6rem;
+			}	
+		}
+	}
+		
+	td, th {
+		border: $border-primary;
+		padding: 0.2rem;
+	}
+	
+	tbody {
+		td {
+			&:first-child {
+				width: 50%;
+
+				@include atMedium() {
+					width: 33.33%;
+				}
+			}
+
+			&:nth-child(n+2) {
+				text-align: center;
+				width: 25%;
+
+				@include atMedium() {
+					width: 33.33%;
+				}	
+			}
+
+			a {
+				color: inherit;
+				display: inline-block;
+				margin-right: 0.5rem;
+
+				&:last-child {
+					margin-right: 0;
+				}
+				
+				&.disabled {
+					color: rgba($color-text-primary, 0.3);
+					cursor: not-allowed;
+				}
+			}		
+		}
+	}
+	
+	tfoot {
+		#form {
+			display: none;
+		}
+		
+		td {
+			border: none;
+			
+			a {
+				color: $color-heading-primary;
+				display: inline-block;
+				margin-right: 0.5rem;
+				
+				&:last-child {
+					margin-right: 0;
+				}
+				
+				&.active {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}

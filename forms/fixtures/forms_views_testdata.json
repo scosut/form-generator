@@ -1,0 +1,27 @@
+[
+	{
+			"model": "forms.form",
+			"pk": 1,
+			"fields": {
+					"title": "Order Form",
+					"instructions": "Complete this form to order apparel from DareDevils Activewear.",
+					"logo": "logos/Letterhead-logo.jpg",
+					"email": "adana@dynamic.com",
+					"gym": "Dynamic",
+					"forSale": 1,
+					"notified": "2020-07-09T21:09:57.139Z"
+			}
+	},
+	{
+		"model": "items.item", 
+		"pk": 1, 
+		"fields": {
+			"order": 1, 
+			"title": "Leotard", 
+			"price": 35, 
+			"image": "forms/24/leo.png", 
+			"sizes": "Child S\nChild M\nChild L", 
+			"form": 1
+		}
+	}
+]

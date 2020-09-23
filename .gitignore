@@ -1,0 +1,9 @@
+/form_builder/static/node_modules
+/form_builder/static/package-lock.json
+*.log
+*.pot
+__pycache__/
+local_settings.py
+db.sqlite3
+venv
+/static

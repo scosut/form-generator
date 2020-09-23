@@ -1,0 +1,33 @@
+@mixin atSmall {
+  @media screen and (min-width: $width-small) {
+    @content;
+  }
+}
+
+@mixin atMedium {
+  @media screen and (min-width: $width-medium) {
+    @content;
+  }
+}
+
+@mixin atLarge {
+  @media screen and (min-width: $width-large) {
+    @content;
+  }
+}
+
+@mixin animateForm($fromRotate, $toLeft, $toTop, $toRotate)
+{
+	from {
+		left: 50%;
+		top: 50%;
+		transform: rotate($fromRotate) translate(-50%, -50%);
+		width: 18rem;
+	}
+	to {
+		left: $toLeft;
+		top: $toTop;
+		transform: rotate($toRotate);
+		width: 5.9rem;
+	}
+}

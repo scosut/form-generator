@@ -1,0 +1,20 @@
+/* base styles */
+html {
+	font-size: 10px;
+}
+
+body {
+	color: $color-text-primary;
+	font-family: $font-sans-serif;
+	font-size: 1.6rem;
+	line-height: 1.2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+	line-height: 1;
+}
+
+.nowrap {
+	white-space: nowrap;
+}

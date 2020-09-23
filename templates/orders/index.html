@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load tz %}
+
+{% block content %}
+<table id="table">
+	<caption>Orders List</caption>
+	{% if orders %}
+	<thead>
+		<tr>
+			<th>Gym</th>
+			<th>Date</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for order in orders %}
+		<tr>
+			<td>{{ order.form.gym }}</td>
+			<td>
+			{{ order.orderDate|date:'n/j/Y' }}
+			<span class="nowrap">
+				{{ order.orderDate|timezone:'America/Los_Angeles'|time:'g:i:s a' }}
+			</span>
+			</td>
+			<td>
+				<a href="{% url 'view' order.id %}" title="view"><i class="fas fa-binoculars"></i></a>
+				<a href="{% url 'export' order.id %}" title="export"><i class="fas fa-file-excel"></i></a>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3">
+				<form id="form" action="{% url 'orders' %}" method="post">
+					{% csrf_token %}
+					<input type="hidden" id="page" name="page">
+				</form>
+				{% for page in pages %}
+				<a href="#" class="page-link{% if page == active %} active{% endif %}">{{ page }}</a>
+				{% endfor %}
+			</td>
+		</tr>
+	</tfoot>
+	{% else %}
+	<tfoot>
+		<tr>
+			<td>No orders exist at this time.</td>
+		</tr>
+	</tfoot>
+	{% endif %}
+</table>
+{% endblock %}

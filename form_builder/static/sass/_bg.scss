@@ -1,0 +1,114 @@
+.bg {
+	align-items: stretch;			
+	background-image:
+		linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+		url("/static/img/form_green.png"), 
+		url("/static/img/form_blue.png"), 
+		url("/static/img/form_mustard.png"), 
+		url("/static/img/form_orange.png");
+	background-position: 0 0,
+		0.5rem 0.5rem, 
+		calc(100% - 0.5rem) 0.5rem, 
+		calc(100% - 0.5rem) calc(100% - 0.5rem), 
+		5px calc(100% - 0.5rem);
+	background-repeat: no-repeat;
+	background-size: 100% 100%, 6.9rem 8.2rem, 6.9rem 8.2rem, 6.9rem 8.2rem, 6.9rem 8.2rem;
+	border: $border-background;
+	display: flex;
+	justify-content: center;
+	margin: auto;
+	min-height: calc(100vh - 0.4rem);
+	max-width: 140rem;
+	
+	@include atSmall {
+		background-size: auto;
+	}
+	
+	.title-wrapper {
+		background: rgba(#C5E0B4, 0.5);
+		border: 0.5rem solid rgba(#80B65B, 0.5);
+		border-radius: 0.5rem;			
+		left: 50%;
+		max-width: 50rem;
+		padding: 1.5rem;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 90%;
+		
+		h2,
+		h3 {
+			margin: 1.5rem 0;
+		}
+		
+		h3 {
+			line-height: 1.2;
+			margin-bottom: 0;
+			text-align: left;
+		}
+	}
+}
+
+.bg-home {		
+	border: $border-background;
+	margin: auto;
+	min-height: calc(100vh - 0.4rem);
+	max-width: 140rem;
+	position: relative;
+	
+	.title-wrapper {
+		animation: show-title 3s 5s forwards;
+		background: rgba(#C5E0B4, 0.5);
+		border: 0.5rem solid rgba(#80B65B, 0.5);
+		border-radius: 0.5rem;			
+		left: -50rem;
+		max-width: 50rem;
+		opacity: 0;
+		padding: 1.5rem;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 90%;
+		
+		h2,
+		h3 {
+			margin: 1.5rem 0;
+		}
+		
+		a {
+			display: inline-block;
+			width: 4rem;
+			position: relative;
+			
+			img {
+				animation: scale-image 1s 8s infinite;
+				transform: scale(1.1);
+				width: 100%;
+			}
+		}
+	}
+	
+	$colors: ("mustard", "orange", "blue", "green");	
+	@each $color in $colors {
+		div.#{$color} {
+			animation: show-image 3s forwards, move-#{$color} 5s 1s forwards;
+			position: absolute;
+			z-index: index($colors, $color);
+			
+			img {
+				display: block;
+				width: 100%;
+			}
+		}
+		
+		div.#{$color}::before {
+			animation: cover-form 5s 1s forwards;
+			content: "";
+			height: 100%;
+			position: absolute;
+			width: 100%;
+		}
+	}
+}

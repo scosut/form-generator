@@ -1,0 +1,10 @@
+<nav id="nav" class="nav-on">
+	<ul class="border-on">
+		<i id="exit" title="close" class="fas fa-times exit-on"></i>
+		<li><a href="{% url 'add' %}"{% if request.path == '/forms/add' %} class="active"{% endif %}>Add Form</a></li>
+		<li><a href="{% url 'forms' %}"{% if request.path == '/forms/' %} class="active"{% endif %}>View Forms</a></li>
+		<li><a href="{% url 'orders' %}"{% if request.path == '/orders/' %} class="active"{% endif %}>View Orders</a></li>
+		<li><a href="{% url 'index' %}"{% if request.path == '/' %} class="active"{% endif %}>Home</a></li>
+		<li><a href="{% url 'admin_logout' %}">Logout</a></li>
+	</ul>
+</nav>

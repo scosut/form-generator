@@ -1,0 +1,24 @@
+{
+  "name": "Form_Builder",
+  "version": "1.0.0",
+  "description": "Form Builder application for creating custom order forms",
+  "main": "index.js",
+  "browserslist": [
+    "> 1%",
+    "last 10 versions"
+  ],
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss --output-style expanded > css/style.css",
+    "prefix:css": "postcss css/style.css -u autoprefixer -o css/style.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.8.4",
+    "node-sass": "^4.14.1",
+    "postcss-cli": "^6.1.3"
+  },
+  "dependencies": {
+    "postcss": "^7.0.32"
+  }
+}

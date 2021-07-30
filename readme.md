@@ -5,6 +5,7 @@ This application generates an intake form based on a seller's response to a seri
 ### Applied Technologies:
 - Python and Django support CRUD operations.
 - MVT architecture provides file structure. 
+- Cloud storage of uploaded images using AWS S3 bucket.
 - Third-party library implemented for Excel rendering. 
 - JavaScript performs navigation and AJAX requests. 
 - Unit testing on view and model methods.

@@ -1,3 +1,15 @@
 # Form Generator
 
-This application improves the method of managing customer orders. Original process entailed seller building a fillable PDF document, forwarding the document to the customer as an email attachment, then transferring all responses to a spreadsheet for further analysis. Seller must be comfortable with Acrobat forms and Excel to be successful. New process asks seller to complete an online form, which automatically generates a new order form and issues a link to the new form by email to the appropriate customer. All customer responses can be downloaded and compiled from a single call to action. Success is not dependent on software familiarity.
+This application generates an intake form based on a seller's response to a series of questions. A link to the new intake form is sent by email to a customer to place an order online. All orders can be downloaded and compiled from a single call to action initiated by the seller.
+
+### Applied Technologies:
+- Python and Django support CRUD operations.
+- MVT architecture provides file structure. 
+- Cloud storage of uploaded images using AWS S3 bucket.
+- Third-party library implemented for Excel rendering. 
+- JavaScript performs navigation and AJAX requests. 
+- Unit testing on view and model methods.
+
+[visit website](https://form.projectsbyscott.com)
+
+<img src="https://www.projectsbyscott.com/img/form_screenshot.png" alt="Form Generator" title="Form Generator" />

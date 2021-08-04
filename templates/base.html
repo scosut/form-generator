@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
+<body class="fadeIn">
 	{% if request.session.user == 'admin' %}
 	{% include 'nav.html' %}
 	{% endif %}
